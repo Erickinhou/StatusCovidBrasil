@@ -1,0 +1,77 @@
+
+/* Used Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* General Styles */
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #4a4a4a;
+    box-sizing: border-box;
+}
+p{
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+
+/* navbar */
+
+.menu{
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.menu-left, .menu-center, .menu-right{
+    display: flex;
+    align-items: center;
+}
+
+/* Menu left */
+.menu-left span{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.menu-left span:nth-child(3){
+    color: #FF6961;
+}
+
+/* Menu center */
+.menu-center li{
+    margin-right: 150px;
+}
+.menu-center li:last-child{
+    margin-right: 0px;
+}
+.menu-center li a{
+    padding-top: 40px;
+    border: solid 4px white;
+    transition: border .3s;
+}
+.menu-center li a:hover{
+    border-top: solid 1px #FF6961;
+}
+
+/* Menu right */   
+.menu-right i{
+    margin: 0px 10px;
+    transition: color .3s;
+}
+
+.menu-right i:hover{
+    color: #FF6961;
+}
+
+/* section DATA */
+
+
