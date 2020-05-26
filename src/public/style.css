@@ -65,7 +65,7 @@ li{
 /* Menu right */   
 .menu-right i{
     margin: 0px 10px;
-    transition: color .3s;
+    transition: color .3s ease-out;
 }
 
 .menu-right i:hover{
