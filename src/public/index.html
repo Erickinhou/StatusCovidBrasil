@@ -8,6 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- link css -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slide.css">
 
     <title>Covid-19 Brasil</title>
 </head>
@@ -16,9 +17,7 @@
         <header>
             <nav class="menu">
             <div class="menu-left">
-                <img class="logo" src="./assets/logo.svg" alt="DevLoop">
-                <span>Dev</span>
-                <span>Loop</span>
+                <span>Dev<strong>Loop</strong></span>  
             </div>
             <ul class="menu-center">
                 <li><a href="#">HOME</a></li>
@@ -31,28 +30,127 @@
             </div>
             </nav>
         </header>
-        <section class="codvid-19">
-            <div class="section-title">
-                <h1>CoronaVirus no Brasil</h1>
-            </div>
-            
-            <div class="cases">
-                <div class="data-cases"></div>
-                <h2>Casos Confirmados</h2>
-            </div>
 
-            <div class="deaths">
-                <div class="data-deaths"></div>
-                <h2>Mortes</h2>
-            </div>
 
-            <div class="share">
-                <span>compartilhe</span>
-                <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
-                <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+
+        <div class="slidershow middle">
+
+            <div class="slides">
+              <input type="radio" name="r" id="r1" checked>
+              <input type="radio" name="r" id="r2">
+              <input type="radio" name="r" id="r3">
+              <input type="radio" name="r" id="r4">
+              <input type="radio" name="r" id="r5">
+              
+              <div class="slide s1">
+                <div class="codvid-19">
+                    <div class="div-title">
+                        <h1>Corona Virus no Brasil</h1>
+                    </div>
+                    
+                    <div class="cases">
+                        <div class="data data-cases-br"></div>
+                        <h2>CASOS CONFIRMADOS</h2>
+                    </div>
+        
+                    <div class="deaths">
+                        <div class="data data-deaths-br"></div>
+                        <h2>MORTES</h2>
+                    </div>
+                </div>
+              </div>
+
+
+              <div class="slide">
+                <div class="codvid-19">
+                    <div class="div-title">
+                        <h1>Corona Virus nos EUA</h1>
+                    </div>
+                    
+                    <div class="cases">
+                        <div class="data data-cases-us"></div>
+                        <h2>CASOS CONFIRMADOS</h2>
+                    </div>
+        
+                    <div class="deaths">
+                        <div class="data data-deaths-us"></div>
+                        <h2>MORTES</h2>
+                    </div>
+                </div>
+              </div>
+
+
+              <div class="slide">
+                <div class="codvid-19">
+                    <div class="div-title">
+                        <h1>Corona Virus na Alemanha</h1>
+                    </div>
+                    
+                    <div class="cases">
+                        <div class="data data-cases-de"></div>
+                        <h2>CASOS CONFIRMADOS</h2>
+                    </div>
+        
+                    <div class="deaths">
+                        <div class="data data-deaths-de"></div>
+                        <h2>MORTES</h2>
+                    </div>
+                </div>
+              </div>
+
+
+              <div class="slide">
+                <div class="codvid-19">
+                    <div class="div-title">
+                        <h1>Corona Virus na China</h1>
+                    </div>
+                    
+                    <div class="cases">
+                        <div class="data data-cases-cn"></div>
+                        <h2>CASOS CONFIRMADOS</h2>
+                    </div>
+        
+                    <div class="deaths">
+                        <div class="data data-deaths-cn"></div>
+                        <h2>MORTES</h2>
+                    </div>
+                </div>
+              </div>
+
+
+              <div class="slide">
+                <div class="codvid-19">
+                    <div class="div-title">
+                        <h1>Corona Virus no Itália</h1>
+                    </div>
+                    
+                    <div class="cases">
+                        <div class="data data-cases-it"></div>
+                        <h2>CASOS CONFIRMADOS</h2>
+                    </div>
+        
+                    <div class="deaths">
+                        <div class="data data-deaths-it"></div>
+                        <h2>MORTES</h2>
+                    </div>
+                </div>
+              </div>
             </div>
-        </section>
+      
+            <div class="navigation">
+              <label for="r1" class="bar"></label>
+              <label for="r2" class="bar"></label>
+              <label for="r3" class="bar"></label>
+              <label for="r4" class="bar"></label>
+              <label for="r5" class="bar"></label>
+            </div>
+        </div>
+        <div class="share">
+            <span>compartilhe</span>
+            <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+            <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+            <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+        </div>
         <div class="data"></div>
     </main>
     <footer>
@@ -60,11 +158,47 @@
     </footer>
     <script type="text/javascript">
     let data
+    
+    function reverseString(String) {
+        let splitArray = String.split('')
+        let reverseArray = splitArray.reverse()
+        let joinString = reverseArray.join('')
+        return joinString
+    }
+
+
+    function formatNumber(str) {
+        str = reverseString(str)
+        let x = ''
+        for(let i = 0; i<str.length; i++){
+            x= x + str[i]
+            if(((i+1)%3== 0)&&(i!== str.length-1))  {
+                x = x+ '.'
+            }
+        }
+        x = reverseString(x)
+        return x
+    }
+
     async function getData () {
-        data = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/Brazil')
-        console.log(data.data.cases);
-        $('.data-cases').append(`<span>${JSON.stringify(data.data.cases)}</span>`)
-        $('.data-deaths').append(`<span>c${JSON.stringify(data.data.deaths)}</span>`)
+        data_br = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/Brazil')
+        data_us = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/USA')
+        data_de = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/Germany')
+        data_cn = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/China')
+        data_it = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/Italy')
+
+        
+        $('.data-cases-br').append(`<span>${formatNumber(data_br.data.cases.toString())}</span>`)
+        $('.data-cases-us').append(`<span>${formatNumber(data_us.data.cases.toString())}</span>`)
+        $('.data-cases-de').append(`<span>${formatNumber(data_de.data.cases.toString())}</span>`)
+        $('.data-cases-cn').append(`<span>${formatNumber(data_cn.data.cases.toString())}</span>`)
+        $('.data-cases-it').append(`<span>${formatNumber(data_it.data.cases.toString())}</span>`)
+
+        $('.data-deaths-br').append(`<span>${formatNumber(data_br.data.deaths.toString())}</span>`)
+        $('.data-deaths-us').append(`<span>${formatNumber(data_us.data.deaths.toString())}</span>`)
+        $('.data-deaths-de').append(`<span>${formatNumber(data_de.data.deaths.toString())}</span>`)
+        $('.data-deaths-cn').append(`<span>${formatNumber(data_cn.data.deaths.toString())}</span>`)
+        $('.data-deaths-it').append(`<span>${formatNumber(data_it.data.deaths.toString())}</span>`)
     }
     getData()
 

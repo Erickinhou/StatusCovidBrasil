@@ -7,8 +7,10 @@
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    color: #4a4a4a;
     box-sizing: border-box;
+}
+main{
+    color: #4a4a4a;
 }
 p{
     font-family: 'Montserrat', sans-serif;
@@ -17,6 +19,7 @@ p{
 a{
     font-family: 'Lato', sans-serif;
     text-decoration: none;
+    color: inherit;
 }
 li{
     list-style-type: none;
@@ -29,6 +32,7 @@ li{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    margin-bottom: 50px;
 }
 .menu-left, .menu-center, .menu-right{
     display: flex;
@@ -36,14 +40,18 @@ li{
 }
 
 /* Menu left */
+
+
 .menu-left span{
+    margin-left: 10px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 36px;
 }
 
-.menu-left span:nth-child(3){
+.menu-left span strong{
     color: #FF6961;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Menu center */
@@ -54,8 +62,7 @@ li{
     margin-right: 0px;
 }
 .menu-center li a{
-    padding-top: 40px;
-    border: solid 4px white;
+    border: solid 1px white;
     transition: border .3s;
 }
 .menu-center li a:hover{
@@ -73,18 +80,58 @@ li{
 }
 
 /* section DATA */
-section.codvid-19{
+div.codvid-19{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 400px;
+    height: 250px;
     margin: 50px 0px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
 }
 
-.section-title h1{
-    font-size: 40px;
+.div-title h1{
+    font-size: 30px;
     font-family: 'Montserrat', sans-serif;
 }
+
+.cases, .deaths{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cases{
+    color: #FF6961;
+}
+.data{
+    font-size: 30px;
+}
+
+.deaths{
+    color: #000000;
+}
+
+.share{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.share span{
+    font-family: 'Roboto', sans-serif;
+    padding-right: 10px;
+}
+.share .fa-facebook{
+    padding-left: 10px;
+    border-left: solid #FF6961 2px;
+}
+.share .fa{
+    padding-right: 20px;
+}
+
+
 
 
