@@ -1,0 +1,20 @@
+@media (max-width: 800px){
+
+    .menu-center{
+        display: none;
+    }
+
+    .menu-left{
+        flex-grow: 1;
+    }
+
+    .dropdown{
+        display: flex;
+    }
+}
+
+@media (max-width: 1024px){
+    .menu-left span{
+        font-size: 24px;
+    }
+}

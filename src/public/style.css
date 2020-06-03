@@ -31,8 +31,9 @@ li{
     position: sticky;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-direction: row;
-    margin-bottom: 50px;
+    width: 100%;
 }
 .menu-left, .menu-center, .menu-right{
     display: flex;
@@ -71,13 +72,51 @@ li{
 
 /* Menu right */   
 .menu-right i{
-    margin: 0px 10px;
+    margin: 0px 5px;
     transition: color .3s ease-out;
 }
 
 .menu-right i:hover{
     color: #FF6961;
 }
+
+/* button mobile ---------- */
+
+.dropdown{
+    display: none;
+} 
+.dropdown button{
+    margin-left: 5px;
+    transform: rotate('90deg');
+    outline:none;
+    transition: all 0.5s;
+}
+
+.dropbtn {
+    color: #4a4a4a;
+    text-decoration: none;
+    border: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.dropdown-content{
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    display: none;
+    flex-direction: column;
+}
+
+.dropdown-content a{
+    padding: 5px;
+    transition: 0.3s;
+    text-align: center;
+}
+.dropdown-content a:hover{
+    color: #FF6961;
+}
+
 
 /* section DATA */
 div.codvid-19{
@@ -119,6 +158,7 @@ div.codvid-19{
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    color: #4a4a4a;
 }
 .share span{
     font-family: 'Roboto', sans-serif;

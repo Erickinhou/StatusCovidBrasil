@@ -9,6 +9,7 @@
     <!-- link css -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="slide.css">
+    <link rel="stylesheet" href="responsive.css">
 
     <title>Covid-19 Brasil</title>
 </head>
@@ -16,18 +17,28 @@
     <main>
         <header>
             <nav class="menu">
-            <div class="menu-left">
-                <span>Dev<strong>Loop</strong></span>  
-            </div>
-            <ul class="menu-center">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">CORONAVIRUS</a></li>
-                <li><a href="#">SOBRE</a></li>
-            </ul>
-            <div class="menu-right">
-                <a href="#" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
-                <a href="#" target="_blank"><i class="fa fa-github fa-2x"></i></a>
-            </div>
+                <div class="menu-left">
+                    <span>Dev<strong>Loop</strong></span>  
+                </div>
+                <ul class="menu-center">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="https://shorturl.at/cfrwz">CORONAVIRUS</a></li>
+                    <li><a href="https://shorturl.at/jGM12">SOBRE</a></li>
+                </ul>
+                <div class="menu-right">
+                    <a href="#" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="show_bar(this)">
+                        <i class="fa fa-bars fa-2x"></i>
+                    </button>
+                    <div class="dropdown-content" mob-menu>
+                        <a href="#">Home</a>
+                        <a href="https://shorturl.at/cfrwz">Covid-19</a>
+                        <a href="https://shorturl.at/jGM12">Sobre</a>
+                    </div>
+                </div>
             </nav>
         </header>
 
@@ -121,7 +132,7 @@
               <div class="slide">
                 <div class="codvid-19">
                     <div class="div-title">
-                        <h1>Corona Virus no Itália</h1>
+                        <h1>Corona Virus na Itália</h1>
                     </div>
                     
                     <div class="cases">
@@ -145,62 +156,84 @@
               <label for="r5" class="bar"></label>
             </div>
         </div>
+        <div class="data"></div>
+    </main>
+    <footer>
         <div class="share">
             <span>compartilhe</span>
             <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
             <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
             <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
         </div>
-        <div class="data"></div>
-    </main>
-    <footer>
-
     </footer>
-    <script type="text/javascript">
-    let data
+
     
-    function reverseString(String) {
-        let splitArray = String.split('')
-        let reverseArray = splitArray.reverse()
-        let joinString = reverseArray.join('')
-        return joinString
-    }
-
-
-    function formatNumber(str) {
-        str = reverseString(str)
-        let x = ''
-        for(let i = 0; i<str.length; i++){
-            x= x + str[i]
-            if(((i+1)%3== 0)&&(i!== str.length-1))  {
-                x = x+ '.'
-            }
-        }
-        x = reverseString(x)
-        return x
-    }
-
-    async function getData () {
-        data_br = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/Brazil')
-        data_us = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/USA')
-        data_de = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/Germany')
-        data_cn = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/China')
-        data_it = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/Italy')
-
+    <script type="text/javascript">
+        let data
+        let angle = 0  
+        let open = -1 
         
-        $('.data-cases-br').append(`<span>${formatNumber(data_br.data.cases.toString())}</span>`)
-        $('.data-cases-us').append(`<span>${formatNumber(data_us.data.cases.toString())}</span>`)
-        $('.data-cases-de').append(`<span>${formatNumber(data_de.data.cases.toString())}</span>`)
-        $('.data-cases-cn').append(`<span>${formatNumber(data_cn.data.cases.toString())}</span>`)
-        $('.data-cases-it').append(`<span>${formatNumber(data_it.data.cases.toString())}</span>`)
+        /* usefull functions */
 
-        $('.data-deaths-br').append(`<span>${formatNumber(data_br.data.deaths.toString())}</span>`)
-        $('.data-deaths-us').append(`<span>${formatNumber(data_us.data.deaths.toString())}</span>`)
-        $('.data-deaths-de').append(`<span>${formatNumber(data_de.data.deaths.toString())}</span>`)
-        $('.data-deaths-cn').append(`<span>${formatNumber(data_cn.data.deaths.toString())}</span>`)
-        $('.data-deaths-it').append(`<span>${formatNumber(data_it.data.deaths.toString())}</span>`)
-    }
-    getData()
+        function show_bar(e){
+            let mobile_menu = document.querySelector('[mob-menu]')
+            e.style.transform = `rotate(${angle-=90}deg)`
+            angle = (angle == 0)? 90 : angle
+            
+            if(open == -1){
+                e.style.color = '#FF6961'
+
+                mobile_menu.style.display = 'flex'
+            }
+            else{
+                mobile_menu.style.display = 'none'
+                e.style.color = '#4a4a4a'
+            }
+            open = open * -1
+        }
+
+        function reverseString(String) {
+            let splitArray = String.split('')
+            let reverseArray = splitArray.reverse()
+            let joinString = reverseArray.join('')
+            return joinString
+        }
+
+
+        function formatNumber(str) {
+            str = reverseString(str)
+            let x = ''
+            for(let i = 0; i<str.length; i++){
+                x= x + str[i]
+                if(((i+1)%3== 0)&&(i!== str.length-1))  {
+                    x = x+ '.'
+                }
+            }
+            x = reverseString(x)
+            return x
+        }
+
+        async function getData () {
+            data_br = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/Brazil')
+            data_us = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/USA')
+            data_de = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/Germany')
+            data_cn = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/China')
+            data_it = await axios.get('https://coronavirus-19-api.herokuapp.com/countries/Italy')
+
+            
+            $('.data-cases-br').append(`<span>${formatNumber(data_br.data.cases.toString())}</span>`)
+            $('.data-cases-us').append(`<span>${formatNumber(data_us.data.cases.toString())}</span>`)
+            $('.data-cases-de').append(`<span>${formatNumber(data_de.data.cases.toString())}</span>`)
+            $('.data-cases-cn').append(`<span>${formatNumber(data_cn.data.cases.toString())}</span>`)
+            $('.data-cases-it').append(`<span>${formatNumber(data_it.data.cases.toString())}</span>`)
+
+            $('.data-deaths-br').append(`<span>${formatNumber(data_br.data.deaths.toString())}</span>`)
+            $('.data-deaths-us').append(`<span>${formatNumber(data_us.data.deaths.toString())}</span>`)
+            $('.data-deaths-de').append(`<span>${formatNumber(data_de.data.deaths.toString())}</span>`)
+            $('.data-deaths-cn').append(`<span>${formatNumber(data_cn.data.deaths.toString())}</span>`)
+            $('.data-deaths-it').append(`<span>${formatNumber(data_it.data.deaths.toString())}</span>`)
+        }
+        getData()
 
     </script>
 </body>
